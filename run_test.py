@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
-import time
 import unittest
-import HTMLTestRunner
-from utils import HTMLTestReportCN
+from common import HTMLTestReportCN
 
 current_path=os.path.dirname(__file__)
 report_path=os.path.join(current_path,'reports/')

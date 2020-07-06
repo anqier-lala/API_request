@@ -3,7 +3,7 @@
 # @Author : lifangfang
 
 import requests
-from utils.config_utils import config
+from common.config_utils import config
 import re
 import json
 
@@ -29,7 +29,7 @@ def create_user_tag(tag_name):
     data = {'access_token': token_value}  # token值为之前获取access_token的值
     info = {'tag': {'name': tag_name}}
     headers = {'Content-Type': 'application/json'}  # 发送json数据必带的头部信息
-    respose_obj = requests.post(url,
+    respose_obj = requests.post(url=url,
                                 params=data,
                                 data=json.dumps(info),
                                 headers=headers)

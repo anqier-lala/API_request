@@ -21,15 +21,25 @@ class ConfigUtils:
         return value
 
     @property
-    def log_path(self):
-        value=self.read_ini('default','log_path')
+    def LOG_PATH(self):
+        value = self.read_ini('path', 'LOG_PATH')
         return value
 
     @property
-    def log_level(self):
-        value=self.read_ini('default','log_level')
+    def CASE_DATA_PATH(self):
+        value = self.read_ini('path', 'CASE_DATA_PATH')
         return value
 
+    @property
+    def REPORT_PATH(self):
+        value = self.read_ini('path', 'REPORT_PATH')
+        return value
+
+
+    @property
+    def LOG_LEVEL(self):
+        value = int(self.read_ini('log', 'LOG_LEVEL'))
+        return value
 
 config=ConfigUtils()
 
@@ -38,6 +48,12 @@ if __name__=='__main__':
     current_path = os.path.dirname(__file__)
     cfgpath = os.path.join(current_path, "../conf/local_config.ini")
     config_u=ConfigUtils()
-    print(config_u.log_level)
+    print(config_u.hosts)
+    print(config_u.LOG_LEVEL)
+    print(config_u.REPORT_PATH)
+    print(config_u.LOG_PATH)
+    print(config_u.CASE_DATA_PATH)
+
+
 
 
