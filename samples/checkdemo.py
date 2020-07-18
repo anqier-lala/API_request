@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # encoding: utf-8
-# @author: liusir
+# @author: lifangfang
 # @file: checkdemo.py
-# @time: 2020/7/12 5:01 下午
+# @time: 2020/7/18 10:01 上午
 
 import re
 import ast

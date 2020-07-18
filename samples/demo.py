@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # encoding: utf-8
-# @author: liusir
+# @author: lifangfang
 # @file: demo.py
-# @time: 2020/7/5 10:42 上午
+# @time: 2020/7/5 10:42 下午
 
 
 a = {'one': 1, 'two': 2, 'three': 3}

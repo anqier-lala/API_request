@@ -14,11 +14,13 @@ class create_user_tag_api(unittest.TestCase):
         pass
 
     def test_create_user_tag(self):
-        logger.info('[case03] 创建用户标签接口')
-        self.assertEqual(create_user_tag('LFF002').json()['tag']['name'],'LFF002')
+        self._testMethodDoc = '[case03] 验证创建标签是否可正常创建' #  会显示在报告的说明中
+        logger.info('[case03] 验证创建标签是否可正常创建')
+        self.assertEqual(create_user_tag('P071802').json()['tag']['name'],'P071802')
 
     def test_create_user_tag_toolong(self):
-        logger.info('[case04] 创建用户标签接口，标签名不能超过30字节')
+        self._testMethodDoc = '[case04] 验证创建标签名长度超过30个字节返回45158' #  会显示在报告的说明中
+        logger.info('[case04] 验证创建标签名长度超过30个字节返回45158')
         self.assertEqual(create_user_tag('不能超过30个字节我来试试abcdefg').json()['errcode'],45158)
 
 
