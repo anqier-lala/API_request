@@ -35,11 +35,42 @@ class ConfigUtils:
         value = self.read_ini('path', 'REPORT_PATH')
         return value
 
-
     @property
     def LOG_LEVEL(self):
         value = int(self.read_ini('log', 'LOG_LEVEL'))
         return value
+
+
+    @property
+    def smtp_server(self):
+        smtp_server_value = self.read_ini('email', 'smtp_server')
+        return smtp_server_value
+
+    @property
+    def smtp_sender(self):
+        smtp_sender_value = self.read_ini('email', 'smtp_sender')
+        return smtp_sender_value
+
+    @property
+    def smtp_password(self):
+        smtp_password_value = self.read_ini('email', 'smtp_password')
+        return smtp_password_value
+
+    @property
+    def smtp_receiver(self):
+        smtp_receiver_value = self.read_ini('email', 'smtp_receiver')
+        return smtp_receiver_value
+
+    @property
+    def smtp_cc(self):
+        smtp_cc_value = self.read_ini('email', 'smtp_cc')
+        return smtp_cc_value
+
+    @property
+    def smtp_subject(self):
+        smtp_subject_value = self.read_ini('email', 'smtp_subject')
+        return smtp_subject_value
+
 
 config=ConfigUtils()
 
@@ -53,6 +84,7 @@ if __name__=='__main__':
     print(config_u.REPORT_PATH)
     print(config_u.LOG_PATH)
     print(config_u.CASE_DATA_PATH)
+
 
 
 
