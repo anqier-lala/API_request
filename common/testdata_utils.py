@@ -62,7 +62,7 @@ if __name__=="__main__":
     for i in testdataUtils.def_testcase_data_list_by_mysql():
         print( i )
 
-    row = testdataUtils.get_row_num('case02','step_02')
+    row = testdataUtils.get_row_num('case03','step_02')
     print(row)
 
 
