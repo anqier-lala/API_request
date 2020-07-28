@@ -6,17 +6,18 @@
 
 import os
 import xlrd   #内置模块、第三方模块pip install  自定义模块
-
+from xlutils.copy import copy
+from common.config_utils import config
 
 class ExcelUtils():
     def __init__(self,file_path,sheet_name):
         self.file_path = file_path
+        self.wb = xlrd.open_workbook(self.file_path,formatting_info=True)
         self.sheet_name = sheet_name
         self.sheet = self.get_sheet()  # 整个表格对象
 
     def get_sheet(self):
-        wb = xlrd.open_workbook(self.file_path)
-        sheet = wb.sheet_by_name(self.sheet_name)
+        sheet = self.wb.sheet_by_name(self.sheet_name)
         return sheet
 
     def get_row_count(self):
@@ -59,9 +60,28 @@ class ExcelUtils():
             all_data_list.append(row_dict)
         return all_data_list
 
+    #更新某个excecl的值
+    def update_excel_data(self, row_id, col_id, content):
+        new_wb = copy(self.wb)
+        sheet = new_wb.get_sheet(self.wb.sheet_names().index(self.sheet_name))  # sheet_by_name('Sheet1')
+        sheet.write(row_id, col_id, content)
+        new_wb.save(self.file_path)
+
+     #清空某个excecl的数据，母方法
+    def clear_excel_column(self, start_id, end_id, col_id):
+        new_wb = copy(self.wb)
+        sheet = new_wb.get_sheet(self.wb.sheet_names().index(self.sheet_name))  # sheet_by_name('Sheet1')
+        for row_id in range(start_id, end_id):
+            sheet.write(row_id, col_id, "")
+        new_wb.save(self.file_path)
+
+
 if __name__=='__main__':
+
     current_path = os.path.dirname(__file__)
-    excel_path = os.path.join( current_path,'..','samples/data/test_case.xlsx' )
+    excel_path = os.path.join( current_path,'..',config.CASE_DATA_PATH )
     excelUtils = ExcelUtils(excel_path,"Sheet1")
-    for row in excelUtils.get_sheet_data_by_dict():
-        print(  row )
+    excelUtils.update_excel_data(4,14,'xiaoliu1')
+    #
+    # for row in excelUtils.get_sheet_data_by_dict():
+    #     print(  row )
