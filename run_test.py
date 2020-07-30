@@ -2,6 +2,8 @@
 import os
 import unittest
 from common import HTMLTestReportCN
+from  nb_log import  LogManager
+
 
 current_path=os.path.dirname(__file__)
 report_path=os.path.join(current_path,'reports/')
