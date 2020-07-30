@@ -22,7 +22,7 @@ class ConfigUtils:
 
     @property
     def LOG_PATH(self):
-        value = self.read_ini('path', 'LOG_PATH')
+        value = self.read_ini('log', 'LOG_PATH')
         return value
 
     @property

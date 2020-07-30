@@ -9,13 +9,12 @@ import paramunittest
 from common.testdata_utils import TestdataUtils
 from common.requests_utils import RequestsUtils
 from nb_log import LogManager
-
+from common.config_utils import config
 
 #如果是mysql数据源的话切换成  def_testcase_data_list_by_mysql()   exccel数据源：def_testcase_data_list()
 
 case_infos = TestdataUtils().def_testcase_data_list()
-logger = LogManager(__file__).get_logger_and_add_handlers(log_filename='ApiTest_%s.log'%time.strftime('%Y_%m_%d'))
-
+logger = LogManager('Api_Test').get_logger_and_add_handlers(log_path=config.LOG_PATH,log_filename='ApiTest_%s.log'%time.strftime('%Y_%m_%d'))
 
 @paramunittest.parametrized(
     *case_infos
